@@ -1,0 +1,8 @@
+; ----- Email credentials -----------
+[email]
+from = "youremail@gmail.com"
+to = "youremail@gmail.com"
+smtp = "smtp.gmail.com"
+smtp_port = 587
+smtp_user = "yourpassword"
+smtp_password = "yourpassword"

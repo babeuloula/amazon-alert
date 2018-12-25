@@ -2,4 +2,5 @@
 vendor/
 
 composer.lock
-.env
+settings.ini
+db/amazon-alert.sqlite
