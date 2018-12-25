@@ -1,0 +1,19 @@
+{
+    "name": "babeuloula/amazon-alert-php",
+    "description": "Check Amazon's price for your products",
+    "license": "Beerware",
+    "authors": [
+        {
+            "name": "BaBeuloula",
+            "email": "babeuloula@gmail.com"
+        }
+    ],
+    "require": {
+        "mnapoli/silly": "^1.7"
+    },
+    "autoload": {
+        "psr-0": {
+            "BaBeuloula": "src"
+        }
+    }
+}
