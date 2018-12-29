@@ -71,7 +71,7 @@ class DB
         }
     }
 
-    public function find (string $table, string $id): ?object
+    public function find (string $table, string $id): ?\stdClass
     {
         try {
             $smt = $this->db->prepare("SELECT * FROM {$table} WHERE id = ? LIMIT 0,1");
