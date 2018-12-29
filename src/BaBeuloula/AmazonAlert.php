@@ -8,7 +8,7 @@ use Swift_SmtpTransport;
 
 class AmazonAlert
 {
-    private $sqlite = "amazon-alert.sqlite";
+    private const SQLITE = "amazon-alert.sqlite";
 
     /** @var array */
     private $settings;
@@ -32,11 +32,11 @@ class AmazonAlert
             'db'   => $root . "/db",
         ];
 
-        if (!is_file($this->settings['folders']['db']."/".$this->sqlite)) {
-            file_put_contents($this->settings['folders']['db']."/".$this->sqlite, "");
+        if (!is_file($this->settings['folders']['db']."/".self::SQLITE)) {
+            file_put_contents($this->settings['folders']['db']."/".self::SQLITE, "");
         }
 
-        $this->db = new DB($this->settings['folders']['db']."/".$this->sqlite);
+        $this->db = new DB($this->settings['folders']['db']."/".self::SQLITE);
 
         $this->amazon = new Amazon();
     }
@@ -129,15 +129,17 @@ class AmazonAlert
     }
 
     /**
-     * Send an email with the prices of all products from the last 30 days
+     * Send an email with the prices of all products from the last $period days
+     *
+     * @param int $period How many days should the application take in the history
      *
      * @throws \Exception
      */
-    public function sendPrices (): void
+    public function sendPrices (int $period = 30): void
     {
         $to = new \DateTime();
         $from = clone $to;
-        $from->modify("-30 days");
+        $from->modify(sprintf("-%d days", $period));
 
         $body = "";
         foreach ($this->db->findAll($from, $to) as $product) {
