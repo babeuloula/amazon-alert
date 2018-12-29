@@ -6,3 +6,10 @@ smtp = "smtp.gmail.com"
 smtp_port = 587
 smtp_user = "yourpassword"
 smtp_password = "yourpassword"
+
+; ----- Amazon credentials -----------
+[amazon]
+country = "fr"
+access_key = "AWS_API_KEY"
+secret_key = "AWS_API_SECRET_KEY"
+associate_tag = "AWS_ASSOCIATE_TAG"

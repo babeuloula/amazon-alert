@@ -11,7 +11,8 @@
     "require": {
         "mnapoli/silly": "^1.7",
         "swiftmailer/swiftmailer": "^6.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "exeu/apai-io": "^2.2"
     },
     "autoload": {
         "psr-0": {

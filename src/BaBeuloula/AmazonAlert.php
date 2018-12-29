@@ -38,7 +38,12 @@ class AmazonAlert
 
         $this->db = new DB($this->settings['folders']['db']."/".self::SQLITE);
 
-        $this->amazon = new Amazon();
+        $this->amazon = new Amazon(
+            $this->settings['amazon']['country'],
+            $this->settings['amazon']['access_key'],
+            $this->settings['amazon']['secret_key'],
+            $this->settings['amazon']['associate_tag']
+        );
     }
 
     /**
